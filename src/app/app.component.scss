@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+h1, h3, p, a, kendo-dropdownlist, kendo-textbox, kendo-rangeslider, kendo-label{
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+.general_page {
+    margin-top: 25px;
+    left: 15%;
+    right: 15%;
+    position: absolute;
+    background-color: #F5D4C5;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    margin: 0px 10px 20px 10px;
+    padding-top: 20px;
+}
+
+h3, a{
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.list_of_tariffs {
+    padding: 0px 25px 25px 25px;
+}
+
+.active_filter {
+    padding: 0px 0px 10px 25px;
+    width: 30%;
+}
+
+.info_about_tariff {
+    height: 200px;
+    background-color:#FFEEDA;
+    display: flex;
+    padding: 0px 20px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    font-size: 14px;
+    line-height: 14px;
+}
+.text_info {
+    padding-right: 10px;
+}
+.img_info {
+   width: 50%;
+}
+img {
+   padding: 10px 0px;
+   width: 100%;
+   max-height: 200px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content {
+    justify-content: space-between;
+    width: 65%;
+}
+
+kendo-textbox, kendo-label {
+    margin-bottom: 5px;
+}
