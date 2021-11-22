@@ -1,0 +1,73 @@
+<div class="general_page">
+  <h1>Тарифный агрегатор</h1>
+  <div class="d-flex">
+      <div class="active_filter">
+      <h3>Фильтрация</h3>
+      <div class="filter">
+        <div>
+          <p>{{"По названию"}}</p>
+          <kendo-textbox type="text" [(ngModel)]="nameValue"></kendo-textbox>
+        </div>
+        <div>
+          <p>{{"По опретору"}}</p>
+          <div *ngFor="let oper of operators" class="d-flex justify-content filter_oper">
+            <kendo-label
+              class="k-checkbox-label"
+              [for]="notification"
+              [text]="oper.name"
+            ></kendo-label>
+            <input type="checkbox" #notification kendoCheckBox [(ngModel)]="oper.check"/>
+          </div>
+        </div>
+        <div>
+          <p>{{"По цене от " + priceValue[0] + " до " + priceValue[1]}}</p>
+          <kendo-rangeslider
+            [(ngModel)]="priceValue"
+            [min]="0"
+            [max]="100"
+            [tickPlacement]="'none'"
+          ></kendo-rangeslider>
+        </div>
+        <div>
+          <p>{{"По количеству минут от " + minValue[0] + " до " + minValue[1]}}</p>
+          <kendo-rangeslider
+            [(ngModel)]="minValue"
+            [min]="0"
+            [max]="100"
+            [tickPlacement]="'none'"
+          ></kendo-rangeslider>
+        </div>
+        <div>
+          <p>{{"По количеству гигов от " + gbValue[0] + " до " + gbValue[1]}}</p>
+          <kendo-rangeslider
+            [(ngModel)]="gbValue"
+            [min]="0"
+            [max]="100"
+            [tickPlacement]="'none'"
+          ></kendo-rangeslider>
+        </div>
+      </div>
+      <button (click)="filter()">Применить фильтры</button>
+    </div>
+    <div class="list_of_tariffs">
+      <div class="info_about_tariff" *ngFor="let tariff of filteringListTariff">
+        <div class="text_info">
+          <h3>{{tariff.name}}</h3>
+          <p>{{"Цена: " + tariff.price}}</p>
+          <p>{{"Количество минут: " + tariff.min}}</p>
+          <p>{{"Количество гигов: " + tariff.gb}}</p>
+        </div>
+        <div class="img_info">
+          <img src="assets/img/{{tariff.operator}}.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4>cmdlsc</h4>
+    
+  </div>
+ 
+</div>
+<router-outlet></router-outlet>
