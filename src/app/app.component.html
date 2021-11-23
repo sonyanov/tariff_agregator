@@ -9,8 +9,8 @@
           <kendo-textbox type="text" [(ngModel)]="nameValue"></kendo-textbox>
         </div>
         <div>
-          <p>{{"По опретору"}}</p>
-          <div *ngFor="let oper of operators" class="d-flex justify-content">
+          <p>{{"По опера  тору"}}</p>
+          <div *ngFor="let oper of operators" class="d-flex justify-content filter_oper">
             <kendo-label
               class="k-checkbox-label"
               [for]="notification"
@@ -63,6 +63,5 @@
       </div>
     </div>
   </div>
- 
 </div>
 <router-outlet></router-outlet>
