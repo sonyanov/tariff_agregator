@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from "@angular/common/http";
 
 
 
@@ -20,6 +21,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+
     AppRoutingModule,
     FormsModule,
     LabelModule,
@@ -32,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     LayoutModule,
     CommonModule
   ],
-  providers: [],
+  providers: [ HttpClientModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

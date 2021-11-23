@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   title = 'angular-tariff-aggregator';
   listTariff: Tariff[] = [];
   filteringListTariff: Tariff[] = [];
-  example: Tariff[];
 
   operators: Operation[] = [
     {name: 'Билайн', check: false},
@@ -32,63 +31,16 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // TODO:получение информации по запросу
-    this.example = [
-    {
-      name: "aaaaaaaaa",
-      operator: "Теле2",
-      price: "102",
-      min: "11",
-      gb: "13"
-    }, 
-    {
-      name: "bbbbbbbbbbb",
-      operator: "Билайн",
-      price: "50",
-      min: "32",
-      gb: "45"
-    },
-    {
-      name: "ababbaba",
-      operator: "МТС",
-      price: "10",
-      min: "33",
-      gb: "13"
-    },
-    {
-      name: "asasasasa",
-      operator: "Мегафон",
-      price: "34",
-      min: "60",
-      gb: "12"
-    }]
-    this.gbValue = [
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.gb) < parseInt(curr.gb) ? acc : curr).gb), 
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.gb) > parseInt(curr.gb) ? acc : curr).gb)
-    ]
-    
-    this.minValue = [
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.min) < parseInt(curr.min) ? acc : curr).min), 
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.min) > parseInt(curr.min) ? acc : curr).min)
-    ]
-
-    this.priceValue = [
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.price) < parseInt(curr.price) ? acc : curr).price), 
-      parseInt(this.example.reduce((acc, curr) => parseInt(acc.price) > parseInt(curr.price) ? acc : curr).price)
-    ]
-
-    this.listTariff = this.example;
-    this.filteringListTariff = this.listTariff;
-
-    // this.route.params.subscribe(params => {
-    //   this.tariffsService.getListTariffs()
-    //     .pipe( )
-    //     .subscribe(
-    //       (tariffs) => {
-    //         // this.listTariff = tariffs
-    //       }
-    //     );
-    // });
+    this.route.params.subscribe(params => {
+      this.tariffsService.getListTariffs()
+        .pipe( )
+        .subscribe(
+          (tariffs) => {
+            this.listTariff = tariffs;
+            this.filteringListTariff = this.listTariff
+          }
+        );
+    });
   }
 
   filter() {
