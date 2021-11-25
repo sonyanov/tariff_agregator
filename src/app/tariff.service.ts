@@ -32,10 +32,10 @@ export class TariffsService {
 
     private static mapTariffFromBackend(backEndModel: any): Tariff {
         return {
-            name: backEndModel.tariffName,
-            operator: backEndModel.provider,
-            price: backEndModel.cost,
-            min: backEndModel.minutes,
+            tariffName: backEndModel.tariffName,
+            provider: backEndModel.provider,
+            cost: backEndModel.cost,
+            minutes: backEndModel.minutes,
             gb: backEndModel.gb
         };
     }
