@@ -1,7 +1,7 @@
 export class Tariff {
-    name: string;
-    operator: string;
-    price: string;
-    min: string;
+    tariffName: string;
+    provider: string;
+    cost: number;
+    minutes: number;
     gb: string;
 }

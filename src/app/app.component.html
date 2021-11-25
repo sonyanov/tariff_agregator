@@ -9,7 +9,7 @@
           <kendo-textbox type="text" [(ngModel)]="nameValue"></kendo-textbox>
         </div>
         <div>
-          <p>{{"По опера  тору"}}</p>
+          <p>{{"По оператору"}}</p>
           <div *ngFor="let oper of operators" class="d-flex justify-content filter_oper">
             <kendo-label
               class="k-checkbox-label"
@@ -20,11 +20,11 @@
           </div>
         </div>
         <div>
-          <p>{{"По цене от " + priceValue[0] + " до " + priceValue[1]}}</p>
+          <p>{{"По цене от " + costValue[0] + " до " + costValue[1]}}</p>
           <kendo-rangeslider
-            [(ngModel)]="priceValue"
-            [min]="0"
-            [max]="100"
+            [(ngModel)]="costValue"
+            [min]="minimumValue.cost[0]"
+            [max]="minimumValue.cost[1]"
             [tickPlacement]="'none'"
           ></kendo-rangeslider>
         </div>
@@ -32,8 +32,8 @@
           <p>{{"По количеству минут от " + minValue[0] + " до " + minValue[1]}}</p>
           <kendo-rangeslider
             [(ngModel)]="minValue"
-            [min]="0"
-            [max]="100"
+            [min]="minimumValue.min[0]"
+            [max]="minimumValue.min[1]"
             [tickPlacement]="'none'"
           ></kendo-rangeslider>
         </div>
@@ -41,24 +41,31 @@
           <p>{{"По количеству гигов от " + gbValue[0] + " до " + gbValue[1]}}</p>
           <kendo-rangeslider
             [(ngModel)]="gbValue"
-            [min]="0"
-            [max]="100"
+            [min]="minimumValue.gb[0]"
+            [max]="minimumValue.gb[1]"
             [tickPlacement]="'none'"
           ></kendo-rangeslider>
+          <kendo-label
+          class="k-checkbox-label"
+          [for]="notification"
+          [text]="noLimited"
+        ></kendo-label>
+        <input type="checkbox" #notification kendoCheckBox [(ngModel)]="limitInternet"/>
         </div>
       </div>
       <button (click)="filter()">Применить фильтры</button>
+      <button (click)="dropFilter()">Сбросить фильтры</button>
     </div>
     <div class="list_of_tariffs">
       <div class="info_about_tariff" *ngFor="let tariff of filteringListTariff">
         <div class="text_info">
-          <h3>{{tariff.name}}</h3>
-          <p>{{"Цена: " + tariff.price}}</p>
-          <p>{{"Количество минут: " + tariff.min}}</p>
+          <h3>{{tariff.tariffName}}</h3>
+          <p>{{"Цена: " + tariff.cost}}</p>
+          <p>{{"Количество минут: " + tariff.minutes}}</p>
           <p>{{"Количество гигов: " + tariff.gb}}</p>
         </div>
         <div class="img_info">
-          <img src="assets/img/{{tariff.operator}}.png">
+          <img src="assets/img/{{tariff.provider}}.png">
         </div>
       </div>
     </div>
