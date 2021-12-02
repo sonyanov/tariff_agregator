@@ -1,5 +1,5 @@
 export class Urls {
     
-    static readonly tariffApi = 'http://localhost:8080/get-tariffs';
+    static readonly tariffApi = 'https://phone-tariffs.herokuapp.com';
     static readonly tariffListAndDetailsApiWithParams = () => `${Urls.tariffApi}`;
 }
