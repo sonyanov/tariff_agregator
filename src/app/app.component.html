@@ -59,10 +59,11 @@
     <div class="list_of_tariffs">
       <div class="info_about_tariff" *ngFor="let tariff of filteringListTariff">
         <div class="text_info">
-          <h3>{{tariff.tariffName}}</h3>
-          <p>{{"Цена: " + tariff.cost}}</p>
-          <p>{{"Количество минут: " + tariff.minutes}}</p>
-          <p>{{"Количество гигов: " + tariff.gb}}</p>
+          <h3><b>{{tariff.tariffName}}</b></h3>
+          <p>{{"Цена: " + tariff.cost + " руб."}}</p>
+          <p>{{"Минуты: " + tariff.minutes}}</p>
+          <p *ngIf="tariff.gb === noLimited">{{"Интернет: " + tariff.gb}}</p>
+          <p *ngIf="tariff.gb !== noLimited">{{"Интернет: " + tariff.gb + " Гб"}}</p>
         </div>
         <div class="img_info">
           <img src="assets/img/{{tariff.provider}}.png">
