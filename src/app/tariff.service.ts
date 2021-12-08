@@ -36,7 +36,8 @@ export class TariffsService {
             provider: backEndModel.provider,
             cost: backEndModel.cost,
             minutes: backEndModel.minutes,
-            gb: backEndModel.gb
+            gb: backEndModel.gb,
+            isPersonal: backEndModel.isPersonal
         };
     }
 }

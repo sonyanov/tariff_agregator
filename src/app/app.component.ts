@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   operators: Operation[] = [
     {name: 'Билайн', check: false},
     {name: 'Мегафон', check: false},
-    {name: 'МТС', check: false},
+    // {name: 'МТС', check: false},
     {name: 'Теле2', check: false}
   ];
 
