@@ -4,4 +4,5 @@ export class Tariff {
     cost: number;
     minutes: number;
     gb: string;
+    isPersonal: boolean;
 }
